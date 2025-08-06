@@ -1,2 +1,1 @@
-# MaxiDAM
-Another DAM
+Contenu généré précédemment...

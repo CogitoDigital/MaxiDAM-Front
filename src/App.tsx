@@ -3,16 +3,19 @@ import { getUser } from './auth'
 import { AuthPage } from './AuthPage'
 import { ExplorerPage } from './ExplorerPage'
 import { AssetDetailPage } from './AssetDetailPage'
+import { Layout } from './Layout'
 
 export default function App() {
   const user = getUser()
-  if (!user) return <Navigate to="/login" replace />
+  if (!user) return <Routes><Route path="*" element={<Navigate to="/login" replace />} /></Routes>
 
   return (
-    <Routes>
-      <Route path="/" element={<ExplorerPage />} />
-      <Route path="/asset/:id" element={<AssetDetailPage />} />
-      <Route path="/login" element={<AuthPage />} />
-    </Routes>
+    <Layout>
+      <Routes>
+        <Route path="/" element={<ExplorerPage />} />
+        <Route path="/asset/:id" element={<AssetDetailPage />} />
+        <Route path="/login" element={<AuthPage />} />
+      </Routes>
+    </Layout>
   )
 }

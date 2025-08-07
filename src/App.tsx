@@ -1,21 +1,18 @@
-// src/App.tsx
-import React from 'react'
-import { Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
+import { getUser } from './auth'
+import { AuthPage } from './AuthPage'
+import { ExplorerPage } from './ExplorerPage'
 import { AssetDetailPage } from './AssetDetailPage'
-import { UploadPage } from './UploadPage'
 
 export default function App() {
+  const user = getUser()
+  if (!user) return <Navigate to="/login" replace />
+
   return (
-    <div className="p-4">
-      <nav className="space-x-4">
-        <Link to="/">Accueil</Link>
-        <Link to="/upload">Upload</Link>
-      </nav>
-      <Routes>
-        <Route path="/" element={<div>Bienvenue dans MaxiDAM</div>} />
-        <Route path="/upload" element={<UploadPage />} />
-        <Route path="/asset/:id" element={<AssetDetailPage />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<ExplorerPage />} />
+      <Route path="/asset/:id" element={<AssetDetailPage />} />
+      <Route path="/login" element={<AuthPage />} />
+    </Routes>
   )
 }

@@ -34,7 +34,7 @@ export function ExplorerPage() {
 
   return (
     <div>
-      <h2 style={{ marginBottom: 10 }}>Explorer</h2>
+      <h2>Explorateur</h2>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: 16 }}>
         {mockAssets.slice(0, visible).map(asset => (
           <div

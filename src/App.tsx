@@ -6,7 +6,6 @@ import { Layout } from './Layout'
 
 export default function App() {
   const user = getUser()
-  console.log("Utilisateur détecté :", user)
 
   if (!user) {
     return (

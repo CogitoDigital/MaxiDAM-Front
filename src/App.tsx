@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { getUser } from './auth.tsx'
+import { getUser } from './auth.ts'
 import { AuthPage } from './AuthPage.tsx'
 import { ExplorerPage } from './ExplorerPage.tsx'
 import { Layout } from './Layout.tsx'

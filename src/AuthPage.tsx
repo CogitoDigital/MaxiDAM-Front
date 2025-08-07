@@ -1,21 +1,23 @@
 import { useNavigate } from 'react-router-dom'
 
-export function AuthPage() {
+export function AuthPage({ onLogin }: { onLogin: () => void }) {
   const navigate = useNavigate()
 
   const handleLogin = () => {
-    try {
-      localStorage.setItem('user', JSON.stringify({ email: 'demo@maxidam.com' }))
-      navigate('/')
-    } catch {
-      alert("Erreur : stockage local non disponible.")
-    }
+    localStorage.setItem('user', JSON.stringify({ email: 'demo@maxidam.com' }))
+    onLogin()
+    navigate('/')
   }
 
   return (
-    <div style={{ padding: '2rem' }}>
-      <h2>Authentification</h2>
-      <button onClick={handleLogin}>Se connecter (démo)</button>
+    <div className="h-screen flex items-center justify-center flex-col">
+      <h2 className="text-xl mb-4">Authentification</h2>
+      <button
+        onClick={handleLogin}
+        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+      >
+        Connexion
+      </button>
     </div>
   )
 }

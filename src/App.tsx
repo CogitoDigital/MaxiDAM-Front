@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { getUser } from './auth'
-import { AuthPage } from './AuthPage'
+import { AuthPage } from './AuthPage.tsx'
 import { ExplorerPage } from './ExplorerPage'
 import { Layout } from './Layout'
 
